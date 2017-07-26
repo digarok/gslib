@@ -54,7 +54,7 @@ HelloStr	str 'HELLO KANSASFEST'
 * Turn on SHR mode                     *
 ****************************************
 GraphicsOn	sep #$30	;8-bit mode
-	lda #$81	;%1000 0001
+	lda #$C1	;%1100 0001
 	stal $00C029	;Turn on SHR mode
 	rep #$30	;back to 16-bit mode
 	rts 
@@ -78,14 +78,14 @@ SetPaletteColor pha	;save accumulator
 ClearToColor	ldx #$7D00	;start at top of pixel data! ($2000-9D00)
 :clearloop	dex
 	dex
-	stal $E12000,x	;screen location
+	stal $E11FFE,x	;screen location
 	bne :clearloop	;loop until we've worked our way down to 0
 	rts
 
 SetSCBs	ldx #$0100	;set all $100 scbs to A
 :scbloop	dex
 	dex
-	stal $E19D00,x
+	stal $E19CFE,x
 	bne :scbloop
 	rts
 
