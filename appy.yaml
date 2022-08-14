@@ -1,0 +1,39 @@
+assemble: 
+- src/quit.s
+- src/quit8.s
+- src/quit16.s
+- src/shr1.s
+- src/shr2.s
+- src/shrhello.s
+- src/shrloadimg.s
+- src/demo.s
+disks:
+- name: gslib
+  file: gslib.2mg
+  size: 800KB
+  files:   
+  - input: src/quit
+    output: /gslib
+  - input: src/quit8.system
+    output: /gslib
+  - input: src/quit16.sys16
+    output: /gslib
+  - input: src/shr1
+    output: /gslib
+  - input: src/shr2
+    output: /gslib
+  - input: src/shrhello
+    output: /gslib
+  - input: src/shrloadimg
+    output: /gslib
+  - input: src/demo.sys16
+    output: /gslib
+  
+  - input: content/KFEST2013B.PAK
+    output: /gslib
+  - input: content/torus00.bin
+    output: /gslib
+  - input: content/song3.nt
+    output: /gslib
+
+ 

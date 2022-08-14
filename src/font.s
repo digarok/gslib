@@ -55,27 +55,27 @@ NextChar      lda ]F_CharIdx
               lda FontData,y
               stal $E12000,x
               lda FontData+2,y
-              stal #2+$E12000,x
+              stal $E12000+2,x
               lda FontData+4,y
-              stal #160+$E12000,x
+              stal $E12000+#160,x
               lda FontData+6,y
-              stal #160+2+$E12000,x
+              stal $E12000+#160+2,x
               lda FontData+8,y
-              stal #160*2+$E12000,x
+              stal $E12000+#320,x
               lda FontData+10,y
-              stal #160*2+2+$E12000,x
+              stal $E12000+#320+2,x
               lda FontData+12,y
-              stal #160*3+$E12000,x
+              stal $E12000+#480,x
               lda FontData+14,y
-              stal #160*3+2+$E12000,x
+              stal $E12000+#480+2,x
               lda FontData+16,y
-              stal #160*4+$E12000,x
+              stal $E12000+#640,x
               lda FontData+18,y
-              stal #160*4+2+$E12000,x
+              stal $E12000+#640+2,x
               lda FontData+20,y
-              stal #160*5+$E12000,x
+              stal $E12000+#800,x
               lda FontData+22,y
-              stal #160*5+2+$E12000,x
+              stal $E12000+#800+2,x
               rts
 
 

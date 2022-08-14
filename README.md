@@ -16,3 +16,6 @@ Source Files in "Lesson" Order
 * shrhello.s       "Hello World", Example program showing how to use the font routines 
 * shrloadimg.s     SHRLoadImage, Loads a PackBytes image and unpacks it to screen
 * shrloadimg.m.s   macros for ToolBox calls in SHRLoadImage
+* demo.s           the final demo project with sprites and music
+
+https://youtu.be/NKB44MSod3o
