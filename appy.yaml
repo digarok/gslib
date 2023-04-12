@@ -6,11 +6,14 @@ assemble:
 - source/shr2.s
 - source/shrhello.s
 - source/shrloadimg.s
+- source/demo.s
 assembleflags: "-V"
 # formatflags: "mc:10 oc:14 cc:30 ms:1 bs:2"
 # additional files to indent along with above
 indent: 
 - source/shrloadimg.m.s
+- source/gslib.mac.s
+- source/skel.macgen.s
 disks:
 - name: gslibdemo
   file: gslibdemo800.2mg
