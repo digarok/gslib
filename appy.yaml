@@ -1,39 +1,36 @@
 assemble: 
-- src/quit.s
-- src/quit8.s
-- src/quit16.s
-- src/shr1.s
-- src/shr2.s
-- src/shrhello.s
-- src/shrloadimg.s
-- src/demo.s
+- source/quit.s
+- source/quit8.s
+- source/quit16.s
+- source/shr1.s
+- source/shr2.s
+- source/shrhello.s
+- source/shrloadimg.s
+- source/demo.s
+assembleflags: "-V"
+# formatflags: "mc:10 oc:14 cc:30 ms:1 bs:2"
+# additional files to indent along with above
+indent: 
+- source/shrloadimg.m.s
+- source/gslib.mac.s
+- source/skel.macgen.s
 disks:
-- name: gslib
-  file: gslib.2mg
+- name: gslibdemo
+  file: gslibdemo800.2mg
   size: 800KB
-  files:   
-  - input: src/quit
-    output: /gslib
-  - input: src/quit8.system
-    output: /gslib
-  - input: src/quit16.sys16
-    output: /gslib
-  - input: src/shr1
-    output: /gslib
-  - input: src/shr2
-    output: /gslib
-  - input: src/shrhello
-    output: /gslib
-  - input: src/shrloadimg
-    output: /gslib
-  - input: src/demo.sys16
-    output: /gslib
+  files:
+  - input: source/quit
+    output: /gslibdemo
+  - input: source/quit8.system
+    output: /gslibdemo
+  - input: source/Quit.Sys16
+    output: /gslibdemo
+  - input: source/SHR1.Sys16
+    output: /gslibdemo
+  - input: source/SHR2.Sys16
+    output: /gslibdemo
+  - input: source/SHRHello.Sys16
+    output: /gslibdemo
+  - input: source/SHRLoadImage.S16
+    output: /gslibdemo
   
-  - input: content/KFEST2013B.PAK
-    output: /gslib
-  - input: content/torus00.bin
-    output: /gslib
-  - input: content/song3.nt
-    output: /gslib
-
- 

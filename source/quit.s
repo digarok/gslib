@@ -5,7 +5,7 @@
 *  2013-06-24                          *
 ****************************************
 
-                    rts                         ; return from wherever we were called
+                rts                         ; return from wherever we were called
 
 
 

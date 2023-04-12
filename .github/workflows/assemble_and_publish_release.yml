@@ -1,0 +1,47 @@
+name: GSLib CI (Appy Project - 65xxx Assemble+Package)
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  appy-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # This will install Appy plus Merlin32 and Cadius on your Github Runner machine
+      - name: Install Appy
+        uses: digarok/install-appy-pack-action@main
+        with:
+          include_prodos: true
+          # appy_version: v0.1.7
+      # Now you can use it to assemble your project(s)
+      - name: Assemble
+        run: |
+          appy asm
+      # This could be one step but I like to see the disk image separately in github UI
+      - name: Create Disk Image
+        run: |
+          appy disk
+      - name: Create Release
+        id: create_release
+        if: startsWith(github.ref, 'refs/tags/v') 
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+      - name: Upload Release Asset - 800KB ProDOS Image
+        if: startsWith(github.ref, 'refs/tags/v') 
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./demodisk800.2mg
+          asset_name: demodisk800.2mg
+          asset_content_type: application/octet-stream

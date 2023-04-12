@@ -4,6 +4,11 @@
 *  Dagen Brock <dagenbrock@gmail.com>  *
 *  2013-07-20                          *
 ****************************************
+* Note that this is not particularly   *
+* optimized.  But it's meant to be a   *
+* straightforward implementation that  *
+* is easy to understand.               *
+****************************************
 * A= ptr to string preceded by length  *
 * X= screen location                   *
 ****************************************
@@ -55,27 +60,27 @@ NextChar      lda ]F_CharIdx
               lda FontData,y
               stal $E12000,x
               lda FontData+2,y
-              stal $E12000+2,x
+              stal #2+$E12000,x
               lda FontData+4,y
-              stal $E12000+#160,x
+              stal #160+$E12000,x
               lda FontData+6,y
-              stal $E12000+#160+2,x
+              stal #160+2+$E12000,x
               lda FontData+8,y
-              stal $E12000+#320,x
+              stal #160*2+$E12000,x
               lda FontData+10,y
-              stal $E12000+#320+2,x
+              stal #160*2+2+$E12000,x
               lda FontData+12,y
-              stal $E12000+#480,x
+              stal #160*3+$E12000,x
               lda FontData+14,y
-              stal $E12000+#480+2,x
+              stal #160*3+2+$E12000,x
               lda FontData+16,y
-              stal $E12000+#640,x
+              stal #160*4+$E12000,x
               lda FontData+18,y
-              stal $E12000+#640+2,x
+              stal #160*4+2+$E12000,x
               lda FontData+20,y
-              stal $E12000+#800,x
+              stal #160*5+$E12000,x
               lda FontData+22,y
-              stal $E12000+#800+2,x
+              stal #160*5+2+$E12000,x
               rts
 
 
